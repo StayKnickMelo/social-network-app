@@ -3,4 +3,4 @@ node_modules/
 /client/build
 
 .DS_Store
-/client/config/default.json
+config/default.json
