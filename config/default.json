@@ -1,0 +1,5 @@
+{
+  "PORT": 5000,
+  "MONGO_URI": "mongodb+srv://igor:640918@devconnectoravatar-la6vj.mongodb.net/<dbname>?retryWrites=true&w=majority",
+  "JWTSecret": "mySecret"
+}
