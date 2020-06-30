@@ -7,6 +7,7 @@ const multer = require('multer');
 const GridFsStorage = require('multer-gridfs-storage');
 const Grid = require('gridfs-stream');
 const cors = require('cors');
+const path = require('path');
 
 const conn = require('./config/db');
 
@@ -351,11 +352,17 @@ app.delete('/api/uploads', async (req, res) => {
 });
 
 
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static('client/build'))
 
 
+  app.get('*', (req,res)=>{
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+  })
+}
 
 
-const PORT = config.get('PORT') || 5000;
+const PORT = process.env.PORT || 5000;
 
 
 app.listen(PORT, () => {
